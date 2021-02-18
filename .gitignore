@@ -1,5 +1,6 @@
 .project
 .vscode
+backend/node_modules/*
 
 # Miscellaneous
 *.class
