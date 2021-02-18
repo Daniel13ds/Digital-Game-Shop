@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-const mongoose = require('mongoose');
 
 const uri = process.env.MONGO_URI
 
@@ -27,4 +26,4 @@ async function connect(){
     console.log('Database: Connected')
 }
 
-module.exports = {connect};
+export default connect

@@ -1,5 +1,5 @@
 import cors from 'cors'
-import bodyParser from 'body-parse'
+import bodyParser from 'body-parser'
 import morgan from 'morgan'
 
 const config = (app) => {

@@ -30,12 +30,12 @@ const GameSchema = new Schema({
         type: String,
         required: true,
         unique: false,
-        trim: true,
+        trim: true/*,
         validate: value => {
             if (!validator.isDate(value)) {
                 throw new Error({error: 'Invalid Date'})
             }
-        }
+        }*/
     },
     price: {
         type: Number,
@@ -66,4 +66,4 @@ const GameSchema = new Schema({
 
 const Game = mongoose.model('Game', GameSchema)
 
-export default Computer
+export default Game
