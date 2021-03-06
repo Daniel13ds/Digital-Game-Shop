@@ -1,14 +1,13 @@
 import gameRoutes from './routes/game'
 import userRoutes from './routes/user'
-//import achievementRoutes from './routes/achievement'
-import userController from './controllers/user'
+import rewardRoutes from './routes/reward'
 
 const router = (app) => {
     app.get('/', async (req, res) => {
         res.send('Router')
     })
     app.use('/games', /*userController.validate,*/ gameRoutes)
-    //app.use('/achievements', userController.validate, achievementRoutes)
+    app.use('/rewards', /*userController.validate,*/ rewardRoutes)
     app.use('/users', userRoutes)
 }
 
