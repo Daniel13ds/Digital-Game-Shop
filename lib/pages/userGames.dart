@@ -1,3 +1,4 @@
+import 'package:digital_game_shop/pages/shopGames.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,7 @@ class UserGames extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.shopping_cart_outlined),
+        onPressed: () => Navigator.pushNamed(context, ShopGames.route),
       ),
     );
   }
