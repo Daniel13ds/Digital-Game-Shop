@@ -39,12 +39,7 @@ const UserSchema = new Schema({
         type:String,
         required:true,
         minlength: 5
-    },
-    gamelist:{
-        type:Array,
-        required:false,
-        trim:true
-    },
+    }
     
 },{versionKey:false})
 
