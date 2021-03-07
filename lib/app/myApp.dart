@@ -1,3 +1,5 @@
+import 'package:digital_game_shop/pages/loginPage.dart';
+import 'package:digital_game_shop/pages/registerPage.dart';
 import 'package:digital_game_shop/pages/userGames.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +14,8 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.orange,
           buttonColor: Colors.green),
       routes: {
-        //Login.route: (context) => Login(),
-        //Register.route: (context) => Register(),
+        LoginPage.route: (context) => LoginPage(),
+        Register.route: (context) => Register(),
         UserGames.route: (context) => UserGames(),
         //UserGameInfo.route: (context) => UserGameInfo(),
         //Achievements.route: (context) => Achievements(),
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         //ShopGames.route: (context) => ShopGames(),
         //ShopGameInfo.route: (context) => ShopGameInfo(),
       },
-      initialRoute: UserGames.route,
+      initialRoute: LoginPage.route,
     );
   }
 }
