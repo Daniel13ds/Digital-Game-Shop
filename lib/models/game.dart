@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:digital_game_shop/services/gamesApiService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +57,7 @@ class Game {
         "user_id": userId
       };
 
-  static List<Game> gamesFromJson(String jsonData, String filterId) {
+  static List<Game> myGamesFromJson(String jsonData, String filterId) {
     final data = json.decode(jsonData);
     final games = List<Game>.from(data.map((game) => Game.fromMap(game)));
     var filteredGames = <Game>[];
@@ -64,6 +65,12 @@ class Game {
       if (game.userId == filterId) filteredGames.add(game);
     });
     return filteredGames;
+  }
+
+  static List<Game> gamesFromJson(String jsonData) {
+    final data = json.decode(jsonData);
+    final games = List<Game>.from(data.map((game) => Game.fromMap(game)));
+    return games;
   }
 
   static fromJson(String jsonData) {
