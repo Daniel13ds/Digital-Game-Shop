@@ -38,6 +38,11 @@ const RewardSchema = new Schema({
         required: true,
         unique: false,
         default: 0
+    },
+    game_id: {
+        type: String,
+        required: true,
+        unique: false
     }
 }, { versionKey: false })
 

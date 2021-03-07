@@ -57,8 +57,8 @@ const GameSchema = new Schema({
         required: false,
         unique: false
     },
-    logros: {
-        type: Array,
+    user_id: {
+        type: String,
         required: false,
         unique: false
     }
