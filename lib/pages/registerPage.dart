@@ -3,15 +3,15 @@ import 'dart:convert';
 import 'package:digital_game_shop/models/user.dart';
 import 'package:flutter/material.dart';
 
-class Register extends StatefulWidget {
-  static final String route = "/register";
+class RegisterPage extends StatefulWidget {
+  static final String route = "/registerPage";
   // Register({Key key}) : super(key: key);
 
   @override
   _RegisterState createState() => _RegisterState();
 }
 
-class _RegisterState extends State<Register> {
+class _RegisterState extends State<RegisterPage> {
   UserCredential userCredential;
   bool _showPassword = false;
   GlobalKey<FormState> _formkey = GlobalKey<FormState>();

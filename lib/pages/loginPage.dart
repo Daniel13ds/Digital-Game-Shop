@@ -6,10 +6,8 @@ import 'package:scoped_model/scoped_model.dart';
 
 import 'registerPage.dart';
 
-
-
 class LoginPage extends StatefulWidget {
-  static final route = "/login";
+  static final route = "/loginPage";
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -18,12 +16,9 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   bool _error = false;
-    UserCredential _credentials = UserCredential();
+  UserCredential _credentials = UserCredential();
 
-
-  _login() async {
-
-  }
+  _login() async {}
 
   onChangeField(String value) {
     setState(() {
@@ -84,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                   RaisedButton(
                       child: Text("Register"),
                       onPressed: () {
-                       Navigator.pushNamed(context, Register.route);
+                        Navigator.pushNamed(context, RegisterPage.route);
                       })
                 ],
               )
@@ -95,7 +90,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
 
 class UserCredential {
   String email;
@@ -109,7 +103,6 @@ class UserCredential {
   }
 }
 
-
 class LoginWidget extends StatefulWidget {
   Function(String) onChangeField;
   UserCredential userCredential;
@@ -121,7 +114,6 @@ class LoginWidget extends StatefulWidget {
 
 class _LoginWidgetState extends State<LoginWidget> {
   bool _showPassword = false;
-
 
   @override
   Widget build(BuildContext context) {
