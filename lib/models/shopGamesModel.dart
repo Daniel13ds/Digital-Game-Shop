@@ -35,6 +35,12 @@ class ShopGamesModel extends Model {
 
   Future<void> refresh() async => notifyListeners();
 
+
+  Future<void> register(User user) async {
+    authApi.register(user);
+  }
+
+
   bool _setLoginStatus(String token) {
     if (token != null) {
       logged = true;

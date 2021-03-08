@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 
 import 'apiService.dart';
 
-
 class AuthApiService extends ApiService {
   AuthApiService({token}) : super(token);
 
@@ -24,18 +23,14 @@ class AuthApiService extends ApiService {
   }
 
   Future<User> register(User user) async {
-
-      final response = await http.post("${ApiService.baseUrl}/users/register",
-          headers: {"Content-type": "application/json"}, body: user.toJson());
-      if (response.statusCode == 201) {
-        final body = json.decode(response.body);
-        token = body['token'];
-        
-      } 
-      
+    // print(user.toJson());
+    final response = await http.post("${ApiService.baseUrl}/users/register",
+        headers: {"Content-type": "application/json"}, body: user.toJson());
+    if (response.statusCode == 201) {
+      final body = json.decode(response.body);
+      token = body['token'];
     }
-  
-
+  }
 
   bool IsTokenValid() {
     return !JwtDecoder.isExpired(token);

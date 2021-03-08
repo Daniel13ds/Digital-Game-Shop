@@ -1,8 +1,11 @@
 import 'dart:convert';
 
+import 'package:digital_game_shop/models/shopGamesModel.dart';
 import 'package:digital_game_shop/models/user.dart';
 import 'package:digital_game_shop/models/userCredential.dart';
+import 'package:digital_game_shop/pages/userGames.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class RegisterPage extends StatefulWidget {
   static final String route = "/registerPage";
@@ -17,11 +20,24 @@ class _RegisterState extends State<RegisterPage> {
   bool _showPassword = false;
   GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   bool _error = false;
-  User _user = User();
+  //User _user = User();
   // RegisterResponse registerResponse =
   //  RegisterResponse.UnknownError("Error desconocido");
 
-  _register() async {}
+  _register() async {
+    if (_formkey.currentState.validate()) {
+      _formkey.currentState.save();
+      print(userCredential.toJson());
+      await ScopedModel.of<ShopGamesModel>(context, rebuildOnChange: true)
+          .register(userCredential);
+      // Navigator.pushNamedAndRemoveUntil(
+      //  context, UserGames.route, (route) => false);
+      //Navigator.popAndPushNamed(context, UserGames.route);
+      Navigator.pop(context);
+    } else {
+      print("error");
+    }
+  }
 
   onChangeField(String value) {
     setState(() {
@@ -134,4 +150,3 @@ class _RegisterState extends State<RegisterPage> {
     );
   }
 }
-
