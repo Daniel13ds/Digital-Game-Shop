@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'registerPage.dart';
+import 'userGames.dart';
 
 class LoginPage extends StatefulWidget {
   static final route = "/loginPage";
@@ -18,7 +19,9 @@ class _LoginPageState extends State<LoginPage> {
   bool _error = false;
   UserCredential _credentials = UserCredential();
 
-  _login() async {}
+  _login() async {
+    Navigator.pushNamed(context, UserGames.route);
+  }
 
   onChangeField(String value) {
     setState(() {
