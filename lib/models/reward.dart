@@ -24,7 +24,7 @@ class Reward {
       @required this.gameId});
 
   static Reward fromMap(Map<String, dynamic> reward) => Reward(
-      id: reward['id'],
+      id: reward['_id'],
       icon: reward['icon'],
       name: reward['name'],
       description: reward['description'],
@@ -34,7 +34,7 @@ class Reward {
       gameId: reward['game_id']);
 
   Map<String, dynamic> toMap() => {
-        "id": id,
+        "_id": id,
         "icon": icon,
         "name": name,
         "description": description,
