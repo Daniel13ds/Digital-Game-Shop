@@ -15,6 +15,8 @@ class ShopGameInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     var arguments = ModalRoute.of(context).settings.arguments;
     game = arguments;
+    print(game.toJson());
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Game Info"),
