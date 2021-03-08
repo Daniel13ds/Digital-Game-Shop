@@ -20,6 +20,8 @@ class MyApp extends StatelessWidget {
       model: shopGamesModel,
       child: ScopedModelDescendant<ShopGamesModel>(
         builder: (context, child, model) {
+          var initialRoute = LoginPage.route;
+          if(shopGamesModel.tokenIsValid()) initialRoute=UserGames.route;
           return MaterialApp(
             title: 'Digital Game Shop',
             debugShowCheckedModeBanner: false,
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
               ShopGames.route: (context) => ShopGames(),
               ShopGameInfo.route: (context) => ShopGameInfo(),
             },
-            initialRoute: LoginPage.route,
+            initialRoute: initialRoute,
           );
         },
       ),

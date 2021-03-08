@@ -1,5 +1,6 @@
 import 'package:digital_game_shop/models/game.dart';
 import 'package:digital_game_shop/models/shopGamesModel.dart';
+import 'package:digital_game_shop/pages/shopGameInfo.dart';
 import 'package:digital_game_shop/pages/userGameInfo.dart';
 import 'package:digital_game_shop/pages/userGames.dart';
 import 'package:flutter/cupertino.dart';
@@ -120,7 +121,7 @@ class ShopGames extends StatelessWidget {
                   Text(game.distributor, style: TextStyle(color: Colors.black)),
               onTap: () async {
                 var updated = await Navigator.pushNamed(
-                    context, UserGameInfo.route,
+                    context, ShopGameInfo.route,
                     arguments: game);
                 if (!updated) {
                   Scaffold.of(context).showSnackBar(SnackBar(

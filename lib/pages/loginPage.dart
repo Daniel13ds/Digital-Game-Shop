@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:digital_game_shop/models/shopGamesModel.dart';
+import 'package:digital_game_shop/models/userCredential.dart';
 import 'package:flutter/material.dart';
 
 import 'package:scoped_model/scoped_model.dart';
@@ -20,7 +22,19 @@ class _LoginPageState extends State<LoginPage> {
   UserCredential _credentials = UserCredential();
 
   _login() async {
-    Navigator.pushNamed(context, UserGames.route);
+    if (_formkey.currentState.validate()) {
+      _formkey.currentState.save();
+      var logged =
+          await ScopedModel.of<ShopGamesModel>(context, rebuildOnChange: true)
+              .login(_credentials);
+      if (logged) {
+        Navigator.of(context).pushReplacementNamed(UserGames.route);
+      } else {
+        setState(() {
+          _error = true;
+        });
+      }
+    }
   }
 
   onChangeField(String value) {
@@ -94,18 +108,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-class UserCredential {
-  String email;
-  String password;
-
-  UserCredential({@required this.email, this.password});
-
-  String toJson() {
-    final loginData = {"email": email, "password": password};
-    return json.encode(loginData);
-  }
-}
-
 class LoginWidget extends StatefulWidget {
   Function(String) onChangeField;
   UserCredential userCredential;
@@ -128,7 +130,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             decoration: InputDecoration(hintText: "Username"),
-            onSaved: (newValue) => widget.userCredential.email = newValue,
+            onSaved: (newValue) => widget.userCredential.username = newValue,
             onChanged: widget.onChangeField,
           ),
         ),

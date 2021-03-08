@@ -18,7 +18,7 @@ class AuthApiService extends ApiService {
         body: credential.toJson());
     if (response.statusCode == 200) {
       final body = json.decode(response.body);
-      token = body['accessToken'];
+      token = body['token'];
       return token;
     }
   }
@@ -29,7 +29,7 @@ class AuthApiService extends ApiService {
           headers: {"Content-type": "application/json"}, body: user.toJson());
       if (response.statusCode == 201) {
         final body = json.decode(response.body);
-        token = body['accessToken'];
+        token = body['token'];
         
       } 
       
