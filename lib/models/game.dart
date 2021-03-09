@@ -31,7 +31,7 @@ class Game {
       this.userId});
 
   static Game fromMap(Map<String, dynamic> game) => Game(
-      id: game['id'],
+      id: game['_id'],
       logo: game['logo'],
       title: game['title'],
       description: game['description'],
@@ -44,7 +44,7 @@ class Game {
       userId: game['user_id']);
 
   Map<String, dynamic> toMap() => {
-        "id": id,
+        "_id": id,
         "logo": logo,
         "title": title,
         "description": description,
