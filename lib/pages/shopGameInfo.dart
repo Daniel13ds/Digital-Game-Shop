@@ -1,9 +1,11 @@
 import 'package:digital_game_shop/models/game.dart';
 import 'package:digital_game_shop/models/preferences.dart';
 import 'package:digital_game_shop/pages/gameRewards.dart';
+import 'package:digital_game_shop/pages/userGames.dart';
 import 'package:digital_game_shop/services/gamesApiService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:toast/toast.dart';
 
 class ShopGameInfo extends StatelessWidget {
   static final route = '/shopGameInfo';
@@ -76,7 +78,16 @@ class ShopGameInfo extends StatelessWidget {
                   style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
                 ),
               ),
-              onPressed: () {}),
+              onPressed: () async {
+                api = GamesApiService(_preferences.token);
+                if (game.userId.contains(api.getUserIdFromToken())) {
+Toast.show("You already have this game", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                } else {
+                  await api.buyGame(game);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, UserGames.route, (route) => false);
+                }
+              }),
         ),
       ),
     );
