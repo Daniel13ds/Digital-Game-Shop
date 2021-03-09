@@ -1,0 +1,104 @@
+{
+  "users": [
+    {
+      "_id": "60467ec4362630c0299ca4bc",
+      "name": "Daniel",
+      "lastname": "del Salto Cobo",
+      "username": "Daniel13ds",
+      "email": "daniel@correo.com",
+      "password": "$2b$10$MKyeYxRk2vO66yY1g.5n.uHRHw9jzwfBrz8ZEujJkfaHU/LcQk3am"
+    },
+    {
+      "_id": "60469c0c87973d065a80b3c7",
+      "name": "Ciris",
+      "lastname": "del Salto Cobo",
+      "username": "Ciris13ds",
+      "email": "ciris@correo.com",
+      "password": "$2b$10$9ilCWtERHhV5A8IP0L7j3elsHx38n9iB1svE./IMCeMGjOvB8bC.O"
+    }
+  ],
+  "games": [
+    {
+      "user_id": [
+        "60467ec4362630c0299ca4bc"
+      ],
+      "_id": "6046821238bd1adbaa55dbd1",
+      "logo": "http://www.smashcustommusic.net/logos/2724",
+      "title": "Persona 5",
+      "distributor": "Atlus",
+      "date": "04/04/2017",
+      "price": 59.95,
+      "description": "A RPG Game inspired in Japan Culture",
+      "global_score": null,
+      "personal_score": null,
+      "progress": null
+    },
+    {
+      "user_id": [
+        "60467ec4362630c0299ca4bc"
+      ],
+      "_id": "60468e5138bd1adbaa55dbd2",
+      "logo": "https://static.wikia.nocookie.net/esfinalfantasy/images/5/5a/Logo_Kingdom_Hearts.jpg/revision/latest?cb=20081117080700",
+      "title": "Kingdom Hearts",
+      "distributor": "SquareSoft",
+      "date": "15/11/2002",
+      "price": 20.45,
+      "description": "An Action-RPG With your Favorites Characters from Fina Fantasy Series and Disney",
+      "global_score": null,
+      "personal_score": null,
+      "progress": null
+    }
+  ],
+  "rewards": [
+    {
+      "earned": false,
+      "global_statistic": 12.1,
+      "_id": "6046ac5a87973d065a80b3c8",
+      "icon": "https://www.laps4.com/foro/trofeos/psntrofeos/155453_tm.PNG",
+      "name": "Great Phantom Thieves Convene",
+      "description": "Max out all Confidants",
+      "difficulty": "Dificil",
+      "game_id": "6046821238bd1adbaa55dbd1"
+    },
+    {
+      "earned": false,
+      "global_statistic": 36.6,
+      "_id": "604760154c0e341cd01b44c8",
+      "icon": "https://www.laps4.com/foro/trofeos/psntrofeos/155442_tm.PNG",
+      "name": "Passionate Listener",
+      "description": "Hear 250 of Futaba's navigation lines",
+      "difficulty": "Dificil",
+      "game_id": "6046821238bd1adbaa55dbd1"
+    },
+    {
+      "earned": false,
+      "global_statistic": 10.46,
+      "_id": "604761db4c0e341cd01b44c9",
+      "icon": "https://www.laps4.com/foro/trofeos/psntrofeos/155429_tm.PNG",
+      "name": "Legendary Phantom Thief",
+      "description": "Earn all trophies",
+      "difficulty": "Platinum",
+      "game_id": "6046821238bd1adbaa55dbd1"
+    },
+    {
+      "earned": false,
+      "global_statistic": 17.97,
+      "_id": "604762c74c0e341cd01b44ca",
+      "icon": "https://i.psnprofiles.com/games/507fe8/trophies/2L64d887.png",
+      "name": "Proud Player",
+      "description": "Clear Final Mix on Proud",
+      "difficulty": "Hard",
+      "game_id": "60468e5138bd1adbaa55dbd2"
+    },
+    {
+      "earned": false,
+      "global_statistic": 10.63,
+      "_id": "604763694c0e341cd01b44cb",
+      "icon": "https://i.psnprofiles.com/games/507fe8/trophies/1L97d524.png",
+      "name": "KINGDOM HEARTS Master",
+      "description": "Obtain all trophies",
+      "difficulty": "Platinum",
+      "game_id": "60468e5138bd1adbaa55dbd2"
+    }
+  ]
+}
