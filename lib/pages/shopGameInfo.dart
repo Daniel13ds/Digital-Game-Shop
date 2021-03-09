@@ -1,6 +1,7 @@
 import 'package:digital_game_shop/models/game.dart';
 import 'package:digital_game_shop/models/preferences.dart';
 import 'package:digital_game_shop/pages/gameRewards.dart';
+import 'package:digital_game_shop/pages/userGames.dart';
 import 'package:digital_game_shop/services/gamesApiService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,6 @@ class ShopGameInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     var arguments = ModalRoute.of(context).settings.arguments;
     game = arguments;
-    print(game.toJson());
 
     return Scaffold(
       appBar: AppBar(
@@ -25,6 +25,11 @@ class ShopGameInfo extends StatelessWidget {
             icon: Icon(Icons.emoji_events),
             onPressed: () => Navigator.pushNamed(context, GameRewards.route,
                 arguments: game),
+          ),
+          IconButton(
+            icon: Icon(Icons.home),
+            onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                context, UserGames.route, (route) => false),
           ),
         ],
       ),

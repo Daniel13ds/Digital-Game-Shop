@@ -130,7 +130,8 @@ class GameRewards extends StatelessWidget {
               subtitle: Text(reward.description,
                   style: TextStyle(color: Colors.black)),
               onTap: () async {
-                Navigator.pushNamed(context, RewardInfo.route, arguments: game);
+                Navigator.pushNamed(context, RewardInfo.route,
+                    arguments: reward);
               },
             ),
           ),
