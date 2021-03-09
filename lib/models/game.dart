@@ -15,7 +15,7 @@ class Game {
   double personalScore;
   double globalScore;
   double progress;
-  String userId;
+  List userId;
 
   Game(
       {this.id,
@@ -62,7 +62,7 @@ class Game {
     final games = List<Game>.from(data.map((game) => Game.fromMap(game)));
     var filteredGames = <Game>[];
     games.forEach((game) {
-      if (game.userId == filterId) filteredGames.add(game);
+      if (game.userId.contains(filterId)) filteredGames.add(game);
     });
     return filteredGames;
   }

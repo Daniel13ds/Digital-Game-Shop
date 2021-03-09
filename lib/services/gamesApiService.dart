@@ -23,3 +23,10 @@ class GamesApiService extends ApiService {
     }
   }
 }
+
+  Future<List<Game>> getGames() async {
+    final response = await http.get(ApiService.baseUrl + '/games');
+    if (response.statusCode == 200) {
+      return Game.gamesFromJson(response.body);
+    }
+  }

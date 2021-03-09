@@ -58,7 +58,7 @@ const GameSchema = new Schema({
         unique: false
     },
     user_id: {
-        type: String,
+        type: Array,
         required: false,
         unique: false
     }
