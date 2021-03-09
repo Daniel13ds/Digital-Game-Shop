@@ -86,7 +86,8 @@ class ShopGameInfo extends StatelessWidget {
               onPressed: () async {
                 api = GamesApiService(_preferences.token);
                 if (game.userId.contains(api.getUserIdFromToken())) {
-Toast.show("You already have this game", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                  Toast.show("You already have this game", context,
+                      duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
                 } else {
                   await api.buyGame(game);
                   Navigator.pushNamedAndRemoveUntil(

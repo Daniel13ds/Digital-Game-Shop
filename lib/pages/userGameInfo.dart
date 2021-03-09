@@ -1,5 +1,6 @@
 import 'package:digital_game_shop/models/game.dart';
 import 'package:digital_game_shop/models/preferences.dart';
+import 'package:digital_game_shop/pages/userGames.dart';
 import 'package:digital_game_shop/services/gamesApiService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,13 @@ class UserGameInfo extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.emoji_events),
-            onPressed: () => Navigator.pushNamed(context, GameRewards.route),
+            onPressed: () => Navigator.pushNamed(context, GameRewards.route,
+                arguments: game),
+          ),
+          IconButton(
+            icon: Icon(Icons.home),
+            onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                context, UserGames.route, (route) => false),
           ),
         ],
       ),
