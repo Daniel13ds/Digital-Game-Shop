@@ -23,7 +23,8 @@ class ShopGameInfo extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.emoji_events),
-            onPressed: () => Navigator.pushNamed(context, GameRewards.route),
+            onPressed: () => Navigator.pushNamed(context, GameRewards.route,
+                arguments: game),
           ),
         ],
       ),

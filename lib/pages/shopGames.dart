@@ -119,15 +119,9 @@ class ShopGames extends StatelessWidget {
                       color: Colors.black, fontWeight: FontWeight.bold)),
               subtitle:
                   Text(game.distributor, style: TextStyle(color: Colors.black)),
-              onTap: () async {
-                var updated = await Navigator.pushNamed(
-                    context, ShopGameInfo.route,
+              onTap: () {
+                Navigator.pushNamed(context, ShopGameInfo.route,
                     arguments: game);
-                if (!updated) {
-                  Scaffold.of(context).showSnackBar(SnackBar(
-                      content: Text('No se ha podido actualizar la nota'),
-                      duration: Duration(seconds: 5)));
-                }
               },
             ),
           ),
