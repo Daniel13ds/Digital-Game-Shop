@@ -53,6 +53,20 @@ class GamesApiService extends ApiService {
     }
   }
 
+  Future<Game> sellGame(Game game) async {
+    final idUser = getUserIdFromToken();
+    game.userId.remove(idUser);
+    final response = await http.put(ApiService.baseUrl + "/games/${game.id}",
+        headers: {
+          "Content-type": "application/json",
+          "Authorization": "Bearer $token"
+        },
+        body: game.toJson());
+    if (response.statusCode == 201) {
+      return Game.fromJson(response.body);
+    }
+  }
+
   Future<Game> addGame(Game game) async {
     final response = await http.post(ApiService.baseUrl + '/games',
         headers: {

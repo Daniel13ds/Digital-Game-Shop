@@ -95,4 +95,9 @@ class ShopGamesModel extends Model {
     await api.updateGame(game);
     notifyListeners();
   }
+
+  sellGame(Game game) async {
+    await api.sellGame(game);
+    notifyListeners();
+  }
 }
