@@ -30,12 +30,7 @@ const GameSchema = new Schema({
         type: String,
         required: true,
         unique: false,
-        trim: true/*,
-        validate: value => {
-            if (!validator.isDate(value)) {
-                throw new Error({error: 'Invalid Date'})
-            }
-        }*/
+        trim: true
     },
     price: {
         type: Number,
