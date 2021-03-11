@@ -4,6 +4,7 @@ import 'package:digital_game_shop/pages/shopGames.dart';
 import 'package:digital_game_shop/pages/userGameInfo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class UserGames extends StatelessWidget {
@@ -113,28 +114,77 @@ Widget _buildGamesList(List<Game> games) {
       var game = games[index];
       return Padding(
         padding: const EdgeInsets.only(left: 8.0, right: 8, top: 8),
-        child: Card(
-          elevation: 10,
-          color: Colors.cyanAccent[400],
-          child: ListTile(
-            title: Text(game.title,
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold)),
-            subtitle:
-                Text(game.distributor, style: TextStyle(color: Colors.black)),
-            onTap: () async {
-              var updated = await Navigator.pushNamed(
-                  context, UserGameInfo.route,
-                  arguments: game);
-              if (!updated) {
-                Scaffold.of(context).showSnackBar(SnackBar(
-                    content: Text('No se ha podido actualizar la nota'),
-                    duration: Duration(seconds: 5)));
-              }
-            },
+        child: Slidable(
+          actionPane: SlidableDrawerActionPane(),
+          secondaryActions: [
+            SlideAction(
+              child: ClipOval(
+                child: Material(
+                  color: Colors.red, // button color
+                  child: InkWell(
+                    child: SizedBox(
+                        width: 65, height: 65, child: Icon(Icons.delete)),
+                  ),
+                ),
+              ),
+              onTap: () => _sellGame(context, game),
+            )
+          ],
+          child: Card(
+            elevation: 10,
+            color: Colors.cyanAccent[400],
+            child: ListTile(
+              title: Text(game.title,
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold)),
+              subtitle:
+                  Text(game.distributor, style: TextStyle(color: Colors.black)),
+              onTap: () async {
+                var updated = await Navigator.pushNamed(
+                    context, UserGameInfo.route,
+                    arguments: game);
+                if (!updated) {
+                  Scaffold.of(context).showSnackBar(SnackBar(
+                      content: Text('No se ha podido actualizar la nota'),
+                      duration: Duration(seconds: 5)));
+                }
+              },
+            ),
           ),
         ),
       );
     },
+  );
+}
+
+void _sellGame(BuildContext context, Game game) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text('Sell Game'),
+      content: Text('Are you sure that you want to sell ${game.title}?'),
+      actions: [
+        FlatButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text('Cancel'),
+        ),
+        ScopedModelDescendant<ShopGamesModel>(
+          rebuildOnChange: true,
+          builder: (context, child, model) => FlatButton(
+            onPressed: () async {
+              Navigator.pop(context);
+              var deleted = await model.sellGame(game);
+              if (!deleted) {
+                Scaffold.of(context).showSnackBar(SnackBar(
+                  content: Text("The game can't be Sold"),
+                  duration: Duration(seconds: 5),
+                ));
+              }
+            },
+            child: Text('Confirm'),
+          ),
+        )
+      ],
+    ),
   );
 }

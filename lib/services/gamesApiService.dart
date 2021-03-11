@@ -52,4 +52,42 @@ class GamesApiService extends ApiService {
       }
     }
   }
+
+  Future<Game> sellGame(Game game) async {
+    final idUser = getUserIdFromToken();
+    game.userId.remove(idUser);
+    final response = await http.put(ApiService.baseUrl + "/games/${game.id}",
+        headers: {
+          "Content-type": "application/json",
+          "Authorization": "Bearer $token"
+        },
+        body: game.toJson());
+    if (response.statusCode == 201) {
+      return Game.fromJson(response.body);
+    }
+  }
+
+  Future<Game> addGame(Game game) async {
+    final response = await http.post(ApiService.baseUrl + '/games',
+        headers: {
+          "Content-type": "application/json",
+          "Authorization": "$token"
+        },
+        body: game.toJson());
+    if (response.statusCode == 201) return Game.fromJson(response.body);
+  }
+
+  Future<bool> removeGame(Game game) async {
+    try {
+      final response = await http.delete(
+          ApiService.baseUrl + '/games/${game.id}',
+          headers: {"Authorization": "$token"});
+      if (response.statusCode == 200)
+        return true;
+      else
+        return false;
+    } catch (error) {
+      return false;
+    }
+  }
 }

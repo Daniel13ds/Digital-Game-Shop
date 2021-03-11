@@ -35,11 +35,9 @@ class ShopGamesModel extends Model {
 
   Future<void> refresh() async => notifyListeners();
 
-
   Future<void> register(User user) async {
     authApi.register(user);
   }
-
 
   bool _setLoginStatus(String token) {
     if (token != null) {
@@ -81,5 +79,25 @@ class ShopGamesModel extends Model {
     _preferences.token = token;
     api = GamesApiService(token);
     authApi = AuthApiService(token: token);
+  }
+
+  addGame(Game game) async {
+    await api.addGame(game);
+    notifyListeners();
+  }
+
+  removeGame(Game game) async {
+    await api.removeGame(game);
+    notifyListeners();
+  }
+
+  updateGame(Game game) async {
+    await api.updateGame(game);
+    notifyListeners();
+  }
+
+  sellGame(Game game) async {
+    await api.sellGame(game);
+    notifyListeners();
   }
 }
