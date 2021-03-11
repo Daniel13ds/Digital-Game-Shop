@@ -8,7 +8,8 @@ class RewardsApiService extends ApiService {
   RewardsApiService(token) : super(token);
 
   Future<List<Reward>> getRewards(Game game) async {
-    final response = await http.get(ApiService.baseUrl + '/rewards');
+    final response = await http.get(ApiService.baseUrl + '/rewards',
+        headers: {"Authorization": "$token"});
     if (response.statusCode == 200) {
       final mapJwt = JwtDecoder.decode(token);
       final gameId = game.id;
