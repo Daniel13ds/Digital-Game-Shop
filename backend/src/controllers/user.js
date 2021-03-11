@@ -78,8 +78,6 @@ const userController = {
         }
     },
     loginUser: async (req, res) => {
-        console.log('en longin')
-
         const { body } = req
         console.log(body)
         try {
