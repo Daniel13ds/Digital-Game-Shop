@@ -7,8 +7,8 @@ const router = (app) => {
     app.get('/', async (req, res) => {
         res.send('Router')
     })
-    app.use('/games', userController.validate, gameRoutes)
-    app.use('/rewards', userController.validate, rewardRoutes)
+    app.use('/games',  gameRoutes)
+    app.use('/rewards',  rewardRoutes)
     app.use('/users', userRoutes)
 }
 

@@ -39,10 +39,6 @@ const UserSchema = new Schema({
         type:String,
         required:true,
         minlength: 5
-    },
-    admin:{
-        type:Boolean,
-        default:false
     }
     
 },{versionKey:false})

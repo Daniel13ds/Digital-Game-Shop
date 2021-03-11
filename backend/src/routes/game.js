@@ -9,4 +9,4 @@ gameRoutes.get('/:_id', gameController.getGameById)
 gameRoutes.delete('/:_id', gameController.deleteGameById)
 gameRoutes.put('/:_id', gameController.updateGameById)
 
-export default gameRoutes
+export default gameRout

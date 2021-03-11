@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -r dotenv/config src/index.js --exec babel-node",
-    "start": "node -r dotenv/config src/index.js --exec babel-node"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && babel ./src --out-dir dist --copy-files",
+    "start": "node ./dist/index"
   },
   "keywords": [
     "flutter",
@@ -21,12 +23,14 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "core-js": "^3.9.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^5.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.17",
     "morgan": "^1.10.0",
+    "regenerator-runtime": "^0.13.7",
     "validator": "^13.5.2"
   },
   "devDependencies": {
